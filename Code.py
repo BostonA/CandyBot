@@ -171,28 +171,14 @@ while True:
                         Potato1=True
         elif event.type == pygame.MOUSEBUTTONDOWN:
             #Screen = font.render("1", 1, (0, 0, 0))
-            if not StartFire:
-                 KeyEntry, StartFire, HeadingSel, DistanceSel,HeadingFirstTime,DistanceFirstTime,Adder= Setup.CheckForButton(event.pos[0], event.pos[1], KeyEntry,StartFire,HeadingSel,DistanceSel,HeadingFirstTime,DistanceFirstTime,Adder)
-            if StartFire:
-                if Armed:
-                    print "Firing"
-                if Tank2:
-                    Armed = True
-                    StartFire = False
-                    Potato1 = False
-                    Tank2 = False
-                    Fire = True
-                    num=3.5
-                elif Potato1:
-                    Tank2 = True
-                else:
-                    Potato1=True
+            if 15 < x < 60 and 275 < y < 320:
+                KeyEntry.append("1")
+            elif 65 < x < 110 and 275 < y < 320:
+                KeyEntry.append("2")
+            elif 115 < x < 160 and 275 < y < 320:
+                KeyEntry.append("3")
+            elif 15 < x < 60 and 325 < y < 365:
+                KeyEntry.append("4")
     pygame.display.flip()
     screen.fill([105,105,105])
-
-    if len(KeyEntry) < 8:
-        Screenf = font.render(''.join(KeyEntry), 1, (0, 0, 0))
-    else:
-        Screenf = font.render("Ov.Flow", 1, (0, 0, 0))
-    screen.blit(Screenf, ScreenPos)
 
